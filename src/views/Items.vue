@@ -1,15 +1,25 @@
 <template>
-  <h1>Welcome to Items</h1>
+  <h1>Welcome to Persons</h1>
   <div class="container-fluid">
     <div class="row row-cols-1 row-cols-md-4 g-4">
-      <div class="col" v-for="person in persons" :key="person.id">
+      <div class="col">
         <div class="card h-100">
-          <img :src="getAvatar(person)" class="card-img-top" :alt="person.firstName + ' ' + person.lastName">
+          <img src="../assets/male.png" class="card-img-top" alt="Max Mustermann">
           <div class="card-body">
-            <h5 class="card-title">{{ person.firstName }} {{ person.lastName }}</h5>
+            <h5 class="card-title">Max Mustermann</h5>
             <p class="card-text">
-              {{ person.firstName }} {{ person.lastName }} ist {{ person.vaccinated ? 'geimpft' : 'nicht geimpft' }} und
-              hat {{ person.pets.length }} Haustier(e).
+              Max Mustermann ist geimpft und hat keine Haustiere.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="../assets/female.png" class="card-img-top" alt="Maxima Meier">
+          <div class="card-body">
+            <h5 class="card-title">Maxima Meier</h5>
+            <p class="card-text">
+              Maxima Meier ist nicht geimpft und hat 1 Haustier.
             </p>
           </div>
         </div>
@@ -20,36 +30,8 @@
 
 <script>
 export default {
-  name: 'Persons',
-  data () {
-    return {
-      persons: []
-    }
-  },
-  methods: {
-    getAvatar (person) {
-      if (person.gender === 'MALE') {
-        return require('../assets/male.png')
-      } else if (person.gender === 'FEMALE') {
-        return require('../assets/female.png')
-      }
-    }
-  },
-  mounted () {
-    const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/persons'
-    const requestOptions = {
-      method: 'GET',
-      redirect: 'follow'
-    }
-    fetch(endpoint, requestOptions)
-      .then(response => response.json())
-      .then(result => result.forEach(person => {
-        this.persons.push(person)
-      }))
-      .catch(error => console.log('error', error))
-  }
+  name: 'Persons'
 }
 </script>
-
 <style scoped>
 </style>
