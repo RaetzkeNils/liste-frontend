@@ -1,27 +1,14 @@
 <template>
-  <div class="about">
-
-  <h1>Welcome to Persons</h1>
+  <h1>Welcome to your Shopping List</h1>
   <div class="container-fluid">
     <div class="row row-cols-1 row-cols-md-4 g-4">
-      <div class="col">
+      <div class="col" v-for="item in item" :key="item.id">
         <div class="card h-100">
-          <img src="../assets/male.png" class="card-img-top" alt="Max Mustermann">
+          <img :src="getAvatar(item)" class="card-img-top" :alt="item.produkt + ' ' + item.menge">
           <div class="card-body">
-            <h5 class="card-title">Max Mustermann</h5>
+            <h5 class="card-title">{{ item.produkt }} {{ item.menge }}</h5>
             <p class="card-text">
-              Max Mustermann ist geimpft und hat keine Haustiere.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="../assets/female.png" class="card-img-top" alt="Maxima Meier">
-          <div class="card-body">
-            <h5 class="card-title">Maxima Meier</h5>
-            <p class="card-text">
-              Maxima Meier ist nicht geimpft und hat 1 Haustier.
+              Produkt: {{ item.produkt }} Menge: {{ item.menge }}
             </p>
           </div>
         </div>
@@ -32,8 +19,25 @@
 
 <script>
 export default {
-  name: 'Persons'
+  name: 'Items',
+  data () {
+    return {
+      items: []
+    }
+  },
+  mounted () {
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    }
+
+    fetch('http://localhost:8080/api/v1/item', requestOptions)
+      .then(response => response.json())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error))
+  }
 }
 </script>
+
 <style scoped>
 </style>
