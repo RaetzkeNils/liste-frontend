@@ -1,4 +1,6 @@
 <template>
+  <div class="about">
+
   <h1>Welcome to Persons</h1>
   <div class="container-fluid">
     <div class="row row-cols-1 row-cols-md-4 g-4">
