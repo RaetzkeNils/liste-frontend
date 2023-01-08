@@ -9,7 +9,7 @@
         <div class="card-body">
           <h3 class="card-title">{{ item.produkt }}</h3>
           <p class="card-text">
-            Menge: {{ item.menge }}
+            Quantity: {{ item.menge }}
           </p>
           <button @click="deleteItem(item.id)">Delete</button>
           <button @click="editItem(item)">Edit</button>

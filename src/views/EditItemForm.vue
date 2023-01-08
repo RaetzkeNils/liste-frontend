@@ -1,11 +1,11 @@
 <template>
   <form @submit.prevent="saveItem">
     <div class="form-row">
-      <label class="form-label">Produkt:</label>
+      <label class="form-label">Product:</label>
       <input class="form-input" type="text" v-model="editingItem.produkt" />
     </div>
     <div class="form-row">
-      <label class="form-label">Menge:</label>
+      <label class="form-label">Quantity:</label>
       <input class="form-input" type="number" v-model="editingItem.menge" />
     </div>
     <button type="submit">Save</button>
