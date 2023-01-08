@@ -1,4 +1,10 @@
 # liste-frontend
+```
+This is a spring-boot web application, which resembles a shopping list.
+The user can add items to the list with the "Create" button.
+Added items can be edited with the "Edit" button or deleted with the "Delete" button.
+The "Delete" button also serves as a check.
+```
 
 ## Project setup
 ```
