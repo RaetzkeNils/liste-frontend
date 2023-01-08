@@ -1,4 +1,3 @@
-<!-- CreateItemForm.vue -->
 <template>
   <form @submit.prevent="createItem">
     <label for="produkt">Produkt:</label>
@@ -37,6 +36,7 @@ export default {
         .then(result => {
           console.log(result)
           this.$emit('close')
+          window.location.reload()
         })
         .catch(error => console.log('error', error))
     }

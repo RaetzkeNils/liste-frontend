@@ -4,7 +4,7 @@
     <div class="row row-cols-1 row-cols-md-4 g-4">
       <div class="col" v-for="item in items" :key="item.id">
         <div class="card-body">
-          <h5 class="card-title">{{ item.produkt }}</h5>
+          <h3 class="card-title">{{ item.produkt }}</h3>
           <p class="card-text">
             Menge: {{ item.menge }}
           </p>
@@ -14,6 +14,7 @@
       </div>
     </div>
   </div>
+  <br>
   <button @click="createItem">Create</button>
   <edit-item-form v-if="editingItem" :item="editingItem" @close="editingItem = null" />
   <create-item-form v-if="creatingItem" @close="creatingItem = null" />
