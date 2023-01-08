@@ -1,11 +1,13 @@
 <template>
   <form @submit.prevent="createItem">
-    <label for="produkt">Produkt:</label>
-    <input type="text" id="produkt" v-model="newItem.produkt" />
-    <br />
-    <label for="menge">Menge:</label>
-    <input type="text" id="menge" v-model="newItem.menge" />
-    <br />
+    <div class="form-row">
+      <label class="form-label">Produkt:</label>
+      <input class="form-input" type="text" v-model="newItem.produkt" />
+    </div>
+    <div class="form-row">
+      <label class="form-label">Menge:</label>
+      <input class="form-input" type="number" v-model="newItem.menge" />
+    </div>
     <button type="submit">Create</button>
     <button type="button" @click="$emit('close')">Cancel</button>
   </form>
@@ -44,5 +46,5 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped src="./style.css">
 </style>
