@@ -41,9 +41,9 @@ export default {
         .then(result => {
           console.log(result)
           this.$emit('close')
-          window.location.reload()
         })
         .catch(error => console.log('error', error))
+      window.location.reload()
     }
   }
 }
