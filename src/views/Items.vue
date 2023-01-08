@@ -1,5 +1,6 @@
 <template>
   <h1>Welcome to your Shopping List</h1>
+  <button @click="createItem">Create</button><br><br>
   <div class="container-fluid">
     <div class="row row-cols-1 row-cols-md-4 g-4">
       <div class="col" v-for="item in items" :key="item.id">
@@ -14,8 +15,6 @@
       </div>
     </div>
   </div>
-  <br>
-  <button @click="createItem">Create</button>
   <edit-item-form v-if="editingItem" :item="editingItem" @close="editingItem = null" />
   <create-item-form v-if="creatingItem" @close="creatingItem = null" />
 </template>
@@ -79,4 +78,46 @@ export default {
 </script>
 
 <style scoped>
+
+.container-fluid {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.card-body {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 20px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
 </style>
